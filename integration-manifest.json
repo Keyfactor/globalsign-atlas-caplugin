@@ -1,0 +1,48 @@
+{
+    "$schema": "https://keyfactor.github.io/v2/integration-manifest-schema.json",
+    "integration_type": "anyca-plugin",
+    "name": "GlobalSign Atlas AnyCA REST Gateway Plugin",
+    "status": "production",
+    "support_level": "kf-supported",
+    "link_github": true,
+    "update_catalog": true,
+    "description": "GlobalSign Atlas plugin for the AnyCA REST Gateway framework",
+    "gateway_framework": "24.2.0",
+    "release_dir": "globalsign-atlas-caplugin/bin/Release",
+    "release_project": "globalsign-atlas-caplugin/globalsign-atlas-caplugin.csproj",
+    "about": {
+        "carest": {
+            "product_ids": [
+                "certificate"
+            ],
+            "ca_plugin_config": [
+                {
+                    "name": "ApiKey",
+                    "description": "The API key for the Atlas credentials the gateway will use."
+                },
+                {
+                    "name": "ApiSecret",
+                    "description": "The corresponding API secret value that matches with the ApiKey."
+                },
+                {
+                    "name": "ClientCertificate",
+                    "description": "The client auth certificate to use with the Atlas API"
+                },
+                {
+                    "name": "SyncStartDate",
+                    "description": "The earliest date to go back when doing a full sync."
+                }
+            ],
+            "enrollment_config": [
+                {
+                    "name": "Lifetime",
+                    "description": "The term length (in days) to use for enrollment."
+                },
+                {
+                    "name": "KeyUsage",
+                    "description": "The key usage to use for enrolled certs. Valid values are 'client', 'server', and 'clientserver'."
+                }
+            ]
+        }
+    }
+}
