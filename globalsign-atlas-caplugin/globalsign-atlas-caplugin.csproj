@@ -15,4 +15,10 @@
     <PackageReference Include="Keyfactor.PKI" Version="8.3.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="manifest.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
