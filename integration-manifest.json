@@ -1,0 +1,13 @@
+{
+    "$schema": "https://keyfactor.github.io/v2/integration-manifest-schema.json",
+    "integration_type": "anyca-plugin",
+    "name": "GlobalSign Atlas AnyCA REST Gateway Plugin",
+    "status": "production",
+    "support_level": "kf-supported",
+    "link_github": true,
+    "update_catalog": true,
+    "description": "GlobalSign Atlas plugin for the AnyCA REST Gateway framework",
+    "gateway_framework": "24.2.0",
+    "release_dir": "globalsign-atlas-caplugin/bin/Release",
+    "release_project": "globalsign-atlas-caplugin/globalsign-atlas-caplugin.csproj",
+}
