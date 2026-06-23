@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Keyfactor.Extensions.CAPlugin.GlobalSign.Atlas</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Keyfactor.AnyGateway.IAnyCAPlugin" Version="3.2.0" />
+    <PackageReference Include="Keyfactor.Common" Version="2.11.0" />
+    <PackageReference Include="Keyfactor.Logging" Version="1.3.0" />
+    <PackageReference Include="Keyfactor.PKI" Version="8.3.1" />
+  </ItemGroup>
+
+</Project>
