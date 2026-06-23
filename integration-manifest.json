@@ -9,5 +9,5 @@
     "description": "GlobalSign Atlas plugin for the AnyCA REST Gateway framework",
     "gateway_framework": "24.2.0",
     "release_dir": "globalsign-atlas-caplugin/bin/Release",
-    "release_project": "globalsign-atlas-caplugin/globalsign-atlas-caplugin.csproj",
+    "release_project": "globalsign-atlas-caplugin/globalsign-atlas-caplugin.csproj"
 }
