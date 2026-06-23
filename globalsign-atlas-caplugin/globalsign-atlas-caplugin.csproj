@@ -5,6 +5,7 @@
     <RootNamespace>Keyfactor.Extensions.CAPlugin.GlobalSign.Atlas</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>disable</Nullable>
+    <AssemblyName>AtlasCAPlugin</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
