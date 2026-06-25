@@ -45,7 +45,7 @@ namespace Keyfactor.Extensions.CAPlugin.GlobalSign.Atlas
 			_logger.MethodEntry(LogLevel.Trace);
 			AtlasClient client = AtlasClient.InitializeClient(_config, _certResolver);
 			Enroll enrollData = new Enroll();
-			csr = PemUtilities.DERToPEM(Convert.FromBase64String(csr), PemUtilities.PemObjectType.CertRequest);
+			
 			enrollData.CSR = csr;
 
 			var validation = client.GetValidationPolicy();
