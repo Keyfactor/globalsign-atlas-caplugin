@@ -14,7 +14,7 @@
   <!-- TOC -->
   <a href="#support">
     <b>Support</b>
-  </a> 
+  </a>
   ·
   <a href="#requirements">
     <b>Requirements</b>
@@ -33,7 +33,6 @@
   </a>
 </p>
 
-
 TODO Overview is a required section
 
 ## Compatibility
@@ -41,7 +40,7 @@ TODO Overview is a required section
 The GlobalSign Atlas AnyCA Gateway REST plugin is compatible with the Keyfactor AnyCA Gateway REST 24.2.0 and later.
 
 ## Support
-The GlobalSign Atlas AnyCA Gateway REST plugin is supported by Keyfactor for Keyfactor customers. If you have a support issue, please open a support ticket with your Keyfactor representative. If you have a support issue, please open a support ticket via the Keyfactor Support Portal at https://support.keyfactor.com. 
+The GlobalSign Atlas AnyCA Gateway REST plugin is supported by Keyfactor for Keyfactor customers. If you have a support issue, please open a support ticket via the Keyfactor Support Portal at https://support.keyfactor.com.
 
 > To report a problem or suggest a new feature, use the **[Issues](../../issues)** tab. If you want to contribute actual bug fixes or proposed enhancements, use the **[Pull requests](../../pulls)** tab.
 
@@ -55,16 +54,16 @@ TODO Requirements is a required section
 
 2. On the server hosting the AnyCA Gateway REST, download and unzip the latest [GlobalSign Atlas AnyCA Gateway REST plugin](https://github.com/Keyfactor/globalsign-atlas-caplugin/releases/latest) from GitHub.
 
-3. Copy the unzipped directory (usually called `net6.0` or `net8.0`) to the Extensions directory:
+3. Copy the unzipped directory (usually called `net8.0` or `net10.0`) to the Extensions directory:
 
 
     ```shell
     Depending on your AnyCA Gateway REST version, copy the unzipped directory to one of the following locations:
-    Program Files\Keyfactor\AnyCA Gateway\AnyGatewayREST\net6.0\Extensions
     Program Files\Keyfactor\AnyCA Gateway\AnyGatewayREST\net8.0\Extensions
+    Program Files\Keyfactor\AnyCA Gateway\AnyGatewayREST\net10.0\Extensions
     ```
 
-    > The directory containing the GlobalSign Atlas AnyCA Gateway REST plugin DLLs (`net6.0` or `net8.0`) can be named anything, as long as it is unique within the `Extensions` directory.
+    > The directory containing the GlobalSign Atlas AnyCA Gateway REST plugin DLLs (`net8.0` or `net10.0`) can be named anything, as long as it is unique within the `Extensions` directory.
 
 4. Restart the AnyCA Gateway REST service.
 
@@ -82,18 +81,16 @@ TODO Requirements is a required section
 
         Populate using the configuration fields collected in the [requirements](#requirements) section.
 
-        * **ApiKey** - The API key for the Atlas credentials the gateway will use. 
-        * **ApiSecret** - The corresponding API secret value that matches with the ApiKey. 
-        * **ClientCertificate** - The client auth certificate to use with the Atlas API 
-        * **SyncStartDate** - The earliest date to go back when doing a full sync. 
+        * **ApiKey** - The API key for the Atlas credentials the gateway will use.
+        * **ApiSecret** - The corresponding API secret value that matches with the ApiKey.
+        * **ClientCertificate** - The client auth certificate to use with the Atlas API
+        * **SyncStartDate** - The earliest date to go back when doing a full sync.
 
 2. TODO Certificate Template Creation Step is an optional section. If this section doesn't seem necessary on initial glance, please delete it. Refer to the docs on [Confluence](https://keyfactor.atlassian.net/wiki/x/SAAyHg) for more info
 
 3. Follow the [official Keyfactor documentation](https://software.keyfactor.com/Guides/AnyCAGatewayREST/Content/AnyCAGatewayREST/AddCA-Keyfactor.htm) to add each defined Certificate Authority to Keyfactor Command and import the newly defined Certificate Templates.
 
 4. TODO Custom Enrollment Parameter Creation Step is an optional section. If this section doesn't seem necessary on initial glance, please delete it. Refer to the docs on [Confluence](https://keyfactor.atlassian.net/wiki/x/SAAyHg) for more info
-
-
 
 ## License
 
