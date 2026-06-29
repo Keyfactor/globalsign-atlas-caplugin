@@ -1,24 +1,18 @@
 ## Overview
 
-TODO Overview is a required section
+The GlobalSign Atlas AnyCA Gateway REST plugin extends the capabilities of GlobalSign Atlas to Keyfactor Command via the Keyfactor AnyCA Gateway REST. The plugin has the following capabilities:
+* SSl Certificate Synchronization
+* SSL Certificate Enrollment
+* SSL Certificate Revocation
 
 ## Requirements
 
-TODO Requirements is a required section
+To use the GlobalSign Atlas AnyCA Gateway, you must generate a set of API Credentials (key/secret) within the Atlas portal, as well as an mTLS certificate linked to those credentials.
 
 ## Gateway Registration
 
-TODO Gateway Registration is a required section
+In order to enroll for certificates the Keyfactor Command server must trust the trust chain. Once you configure your Root and/or Subordinate CA in your Atlas account, make sure to download and import the certificate chain into the Command Server certificate store
 
 ## Certificate Template Creation Step
 
-TODO Certificate Template Creation Step is an optional section. If this section doesn't seem necessary on initial glance, please delete it. Refer to the docs on [Confluence](https://keyfactor.atlassian.net/wiki/x/SAAyHg) for more info
-
-## Custom Enrollment Parameter Creation Step
-
-TODO Custom Enrollment Parameter Creation Step is an optional section. If this section doesn't seem necessary on initial glance, please delete it. Refer to the docs on [Confluence](https://keyfactor.atlassian.net/wiki/x/SAAyHg) for more info
-
-## Mechanics
-
-TODO Mechanics is an optional section. If this section doesn't seem necessary on initial glance, please delete it. Refer to the docs on [Confluence](https://keyfactor.atlassian.net/wiki/x/SAAyHg) for more info
-
+When defining templates, the product ID should just be defined as "certificate".

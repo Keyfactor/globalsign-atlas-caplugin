@@ -357,6 +357,7 @@ namespace Keyfactor.Extensions.CAPlugin.GlobalSign.Atlas
 			{
 				var anyCACert = new AnyCAPluginCertificate
 				{
+					ProductID = "certificate",
 					CARequestID = cert.Status.SerialNumber,
 					Certificate = cert.Cert.Certificate,
 					Status = cert.Cert.Status.Equals("issued", StringComparison.OrdinalIgnoreCase) ? (int)EndEntityStatus.GENERATED :
