@@ -279,6 +279,13 @@ namespace Keyfactor.Extensions.CAPlugin.GlobalSign.Atlas
 					Hidden = false,
 					DefaultValue = "2024-01-01",
 					Type = "String"
+				},
+				["Enabled"] = new PropertyConfigInfo()
+				{
+					Comments = "Flag to Enable or Disable gateway functionality. Disabling is primarily used to allow creation of the CA prior to configuration information being available.",
+					Hidden = false,
+					DefaultValue = true,
+					Type = "Boolean"
 				}
 			};
 		}
@@ -326,6 +333,12 @@ namespace Keyfactor.Extensions.CAPlugin.GlobalSign.Atlas
 
 		public async Task Ping()
 		{
+			if (!_config.Enabled)
+			{
+				_logger.LogWarning($"The CA is currently in the Disabled state. It must be Enabled to perform operations. Skipping connectivity test...");
+				_logger.MethodExit(LogLevel.Trace);
+				return;
+			}
 			try
 			{
 				AtlasClient client = AtlasClient.InitializeClient(_config, _certResolver);

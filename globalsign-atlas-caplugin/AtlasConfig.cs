@@ -25,5 +25,8 @@ namespace Keyfactor.Extensions.CAPlugin.GlobalSign.Atlas
 
 		[JsonProperty("SyncStartDate")]
 		public string SyncStartDate { get; set; }
+
+		[JsonProperty("Enabled")]
+		public bool Enabled { get; set; } = true;
 	}
 }

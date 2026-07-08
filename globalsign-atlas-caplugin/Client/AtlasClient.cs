@@ -22,6 +22,8 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
+using static Org.BouncyCastle.Math.EC.ECCurve;
+
 using CertificateResponse = Keyfactor.Extensions.CAPlugin.GlobalSign.Atlas.APIProxy.CertificateResponse;
 
 namespace Keyfactor.Extensions.CAPlugin.GlobalSign.Atlas.Client
@@ -69,6 +71,12 @@ namespace Keyfactor.Extensions.CAPlugin.GlobalSign.Atlas.Client
 		public static AtlasClient InitializeClient(AtlasConfig config, ICertificateResolver certResolver)
 		{
 			Logger.MethodEntry(LogLevel.Debug);
+			if (!config.Enabled)
+			{
+				Logger.LogWarning($"The CA is currently in the Disabled state. It must be Enabled to perform operations. Skipping connectivity test...");
+				Logger.MethodExit(LogLevel.Trace);
+				throw new Exception($"The CA is currently in the Disabled state. It must be Enabled to perform operations.");
+			}
 			Logger.LogTrace($"Retrieving auth certificate");
 			X509Certificate2 authCert = null;
 			if (!string.IsNullOrEmpty(config.Certificate.ImportedCertificate))
