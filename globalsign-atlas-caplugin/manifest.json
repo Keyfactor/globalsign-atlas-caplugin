@@ -1,0 +1,10 @@
+{
+  "extensions": {
+    "Keyfactor.AnyGateway.Extensions.IAnyCAPlugin": {
+      "AtlasCAPlugin": {
+        "assemblypath": "AtlasCAPlugin.dll",
+        "TypeFullName": "Keyfactor.Extensions.CAPlugin.GlobalSign.Atlas.AtlasCAPlugin"
+      }
+    }
+  }
+}
