@@ -33,7 +33,10 @@
   </a>
 </p>
 
-TODO Overview is a required section
+The GlobalSign Atlas AnyCA Gateway REST plugin extends the capabilities of GlobalSign Atlas to Keyfactor Command via the Keyfactor AnyCA Gateway REST. The plugin has the following capabilities:
+* SSl Certificate Synchronization
+* SSL Certificate Enrollment
+* SSL Certificate Revocation
 
 ## Compatibility
 
@@ -46,7 +49,7 @@ The GlobalSign Atlas AnyCA Gateway REST plugin is supported by Keyfactor for Key
 
 ## Requirements
 
-TODO Requirements is a required section
+To use the GlobalSign Atlas AnyCA Gateway, you must generate a set of API Credentials (key/secret) within the Atlas portal, as well as an mTLS certificate linked to those credentials.
 
 ## Installation
 
@@ -75,7 +78,7 @@ TODO Requirements is a required section
 
     * **Gateway Registration**
 
-        TODO Gateway Registration is a required section
+        In order to enroll for certificates the Keyfactor Command server must trust the trust chain. Once you configure your Root and/or Subordinate CA in your Atlas account, make sure to download and import the certificate chain into the Command Server certificate store
 
     * **CA Connection**
 
@@ -86,11 +89,14 @@ TODO Requirements is a required section
         * **ClientCertificate** - The client auth certificate to use with the Atlas API
         * **SyncStartDate** - The earliest date to go back when doing a full sync.
 
-2. TODO Certificate Template Creation Step is an optional section. If this section doesn't seem necessary on initial glance, please delete it. Refer to the docs on [Confluence](https://keyfactor.atlassian.net/wiki/x/SAAyHg) for more info
+2. When defining templates, the product ID should just be defined as "certificate".
 
 3. Follow the [official Keyfactor documentation](https://software.keyfactor.com/Guides/AnyCAGatewayREST/Content/AnyCAGatewayREST/AddCA-Keyfactor.htm) to add each defined Certificate Authority to Keyfactor Command and import the newly defined Certificate Templates.
 
-4. TODO Custom Enrollment Parameter Creation Step is an optional section. If this section doesn't seem necessary on initial glance, please delete it. Refer to the docs on [Confluence](https://keyfactor.atlassian.net/wiki/x/SAAyHg) for more info
+4. In Keyfactor Command (v12.3+), for each imported Certificate Template, follow the [official documentation](https://software.keyfactor.com/Core-OnPrem/Current/Content/ReferenceGuide/Configuring%20Template%20Options.htm) to define enrollment fields for each of the following parameters:
+
+    * **Lifetime** - The term length (in days) to use for enrollment.
+    * **KeyUsage** - The key usage to use for enrolled certs. Valid values are 'client', 'server', and 'clientserver'.
 
 ## License
 
