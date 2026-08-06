@@ -12,6 +12,18 @@ namespace Keyfactor.Extensions.CAPlugin.GlobalSign.Atlas
 {
 	public class AtlasConfig
 	{
+		public class Constants
+		{
+			public static string API_KEY = "ApiKey";
+			public static string API_SECRET = "ApiSecret";
+			public static string CLIENT_CERTIFICATE = "ClientCertificate";
+			public static string SYNC_START_DATE = "SyncStartDate";
+			public static string ENABLED = "Enabled";
+
+			public static string LIFETIME = "Lifetime";
+			public static string KEY_USAGE = "KeyUsage";
+		}
+
 		public AtlasConfig() { }
 
 		[JsonProperty("ApiKey")]
