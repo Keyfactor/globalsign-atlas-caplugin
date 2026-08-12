@@ -252,35 +252,35 @@ namespace Keyfactor.Extensions.CAPlugin.GlobalSign.Atlas
 		{
 			return new Dictionary<string, PropertyConfigInfo>()
 			{
-				["ApiKey"] = new PropertyConfigInfo()
+				[AtlasConfig.Constants.API_KEY] = new PropertyConfigInfo()
 				{
 					Comments = "The API key for the Atlas credentials the gateway will use.",
 					Hidden = false,
 					DefaultValue = "",
 					Type = "String"
 				},
-				["ApiSecret"] = new PropertyConfigInfo()
+				[AtlasConfig.Constants.API_SECRET] = new PropertyConfigInfo()
 				{
 					Comments = "The corresponding API secret value that matches with the ApiKey.",
 					Hidden = true,
 					DefaultValue = "",
 					Type = "String"
 				},
-				["ClientCertificate"] = new PropertyConfigInfo()
+				[AtlasConfig.Constants.CLIENT_CERTIFICATE] = new PropertyConfigInfo()
 				{
 					Comments = "The client auth certificate to use with the Atlas API",
 					Hidden = false,
 					DefaultValue = "",
 					Type = "ClientCertificate"
 				},
-				["SyncStartDate"] = new PropertyConfigInfo()
+				[AtlasConfig.Constants.SYNC_START_DATE] = new PropertyConfigInfo()
 				{
 					Comments = "The earliest date to go back when doing a full sync.",
 					Hidden = false,
 					DefaultValue = "2024-01-01",
 					Type = "String"
 				},
-				["Enabled"] = new PropertyConfigInfo()
+				[AtlasConfig.Constants.ENABLED] = new PropertyConfigInfo()
 				{
 					Comments = "Flag to Enable or Disable gateway functionality. Disabling is primarily used to allow creation of the CA prior to configuration information being available.",
 					Hidden = false,
@@ -314,14 +314,14 @@ namespace Keyfactor.Extensions.CAPlugin.GlobalSign.Atlas
 		{
 			return new Dictionary<string, PropertyConfigInfo>()
 			{
-				["Lifetime"] = new PropertyConfigInfo()
+				[AtlasConfig.Constants.LIFETIME] = new PropertyConfigInfo()
 				{
 					Comments = "The term length (in days) to use for enrollment.",
 					Hidden = false,
 					DefaultValue = 30,
 					Type = "Number"
 				},
-				["KeyUsage"] = new PropertyConfigInfo()
+				[AtlasConfig.Constants.KEY_USAGE] = new PropertyConfigInfo()
 				{
 					Comments = "The key usage to use for enrolled certs. Valid values are 'client', 'server', and 'clientserver'.",
 					Hidden = false,
@@ -383,6 +383,21 @@ namespace Keyfactor.Extensions.CAPlugin.GlobalSign.Atlas
 		public async Task ValidateCAConnectionInfo(Dictionary<string, object> connectionInfo)
 		{
 			_logger.LogTrace($"Validating CA Connection info");
+
+			try
+			{
+				if (!(bool)connectionInfo[AtlasConfig.Constants.ENABLED])
+				{
+					_logger.LogWarning($"The CA is currently in the Disabled state. It must be Enabled to perform operations. Skipping validation...");
+					_logger.MethodExit(LogLevel.Trace);
+					return;
+				}
+			}
+			catch (Exception ex)
+			{
+				_logger.LogError($"Exception: {LogHandler.FlattenException(ex)}");
+			}
+
 			List<string> errors = new List<string>();
 			string rawConfig = JsonConvert.SerializeObject(connectionInfo);
 			AtlasConfig testConfig = JsonConvert.DeserializeObject<AtlasConfig>(rawConfig);
