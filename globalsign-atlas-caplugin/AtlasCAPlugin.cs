@@ -166,13 +166,19 @@ namespace Keyfactor.Extensions.CAPlugin.GlobalSign.Atlas
 			}
 
 			var sanDict = new Dictionary<string, string[]>(san, StringComparer.OrdinalIgnoreCase);
+			var dnsKeys = sanDict.Where(kvp => kvp.Key.Contains("dns", StringComparison.OrdinalIgnoreCase));
 			if (!validation.San.DNSNames.Static)
 			{
-				if (sanDict.ContainsKey("dns"))
-					foreach (var dnsSan in sanDict["dns"])
+				foreach (var dnsKey in dnsKeys)
+				{
+					foreach (var dnsSan in dnsKey.Value)
+					{
 						enrollData.SANs.DNSList.Add(dnsSan);
+					}
+				}
+
 			}
-			else if (sanDict.ContainsKey("dns"))
+			else if (dnsKeys.Count() > 0)
 			{
 				_logger.LogWarning($"Validation Policy does not allow DNS SANs, skipping");
 			}
